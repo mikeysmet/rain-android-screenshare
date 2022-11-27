@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">ScreenShare</string>
+
+    <!--BitmapNotification-->
+    <string name="image_generator_press_start">Press START on device</string>
+    <string name="image_generator_go_to_new_address">Please go to new address</string>
+    <string name="image_generator_reload_this_page">Please reload this page</string>
+    <string name="image_generator_address_blocked">Client address blocked</string>
+
+    <!--HTML text-->
+    <string name="html_stream_require_pin">This stream requires PIN to access it</string>
+    <string name="html_enter_pin">Enter pin:\u0020</string>
+    <string name="html_submit_text">Submit</string>
+    <string name="html_wrong_pin">Wrong pin!</string>
+    <string name="html_address_blocked">Client address blocked</string>
+
+    <string name="notification_ready_to_stream">Ready to stream</string>
+    <string name="notification_press_start">Press START to begin stream</string>
+    <string name="notification_start">Start</string>
+    <string name="notification_exit">Exit</string>
+    <string name="notification_stream">Stream…</string>
+    <string name="notification_press_stop">Press STOP to end stream</string>
+    <string name="notification_stop">Stop</string>
+
+    <string name="error_title">Error</string>
+    <string name="error_port_in_use">Port already in use. Choose another one.</string>
+    <string name="error_invalid_media_projection">Security error: Invalid media projection. Try one more time.</string>
+    <string name="error_ip_address_not_found">IP address not found.\nTry to disable \"Use WiFi only\" in settings.</string>
+    <string name="error_wrong_image_format">System returns image in unknown format. No fix available. Sorry.</string>
+    <string name="error_exit">Exit</string>
+
+    <string name="permission_activity_error_title_activity_not_found">Permission dialog error</string>
+    <string name="permission_activity_error_activity_not_found">Android bug. Don\'t check \"Don\'t show again\" at the rights request dialogue to capture the screen. If you already did so, reinstall the app.</string>
+    <string name="permission_activity_cast_permission_required_title">Permission required</string>
+    <string name="permission_activity_cast_permission_required">ScreenStream application requires Screen Cast permission to capture screen.</string>
+    <string name="permission_activity_error_title">Error</string>
+    <string name="permission_activity_error_unknown">Unknown error</string>
+
+    
+</resources>
