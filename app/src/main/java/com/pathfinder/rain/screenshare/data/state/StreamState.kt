@@ -1,0 +1,38 @@
+package com.pathfinder.rain.screenshare.data.state
+
+import android.media.projection.MediaProjection
+import com.pathfinder.rain.screenshare.data.image.BitmapCapture
+import com.pathfinder.rain.screenshare.data.model.AppError
+import com.pathfinder.rain.screenshare.data.model.NetInterface
+
+
+data class StreamState(
+    val state: State = State.CREATED,
+    val mediaProjection: MediaProjection? = null,
+    val bitmapCapture: BitmapCapture? = null,
+    val netInterfaces: List<NetInterface> = emptyList(),
+    val httpServerAddressAttempt: Int = 0,
+    val appError: AppError? = null
+) {
+
+    enum class State { CREATED, ADDRESS_DISCOVERED, SERVER_STARTED, PERMISSION_PENDING, STREAMING, RESTART_PENDING, ERROR, DESTROYED }
+
+    internal fun isPublicStatePublishRequired(previousStreamState: StreamState): Boolean =
+        (state != State.DESTROYED && state != previousStreamState.state) ||
+                netInterfaces != previousStreamState.netInterfaces ||
+                appError != previousStreamState.appError
+
+    internal fun toPublicState() = AppStateMachine.Effect.PublicState(
+        isStreaming(),
+        (canStartStream() || isStreaming()).not(),
+        isWaitingForPermission(),
+        netInterfaces,
+        appError
+    )
+
+    internal fun isStreaming(): Boolean = state == State.STREAMING
+
+    private fun canStartStream(): Boolean = state == State.SERVER_STARTED
+
+    private fun isWaitingForPermission(): Boolean = state == State.PERMISSION_PENDING
+}

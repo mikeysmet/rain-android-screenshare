@@ -8,7 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.smet.screenshare"
+        applicationId "com.pathfinder.rain"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'])
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
@@ -55,15 +55,9 @@ dependencies {
 
     implementation("io.insert-koin:koin-android:3.2.0")
 
-    //implementation("com.github.iamironz:binaryprefs:1.0.1") //Migrating to datastore
-
-    //implementation("com.github.yandextaxitech:binaryprefs:1.0.0@aar")
-
     implementation("com.afollestad.material-dialogs:core:3.3.0")
     implementation("com.afollestad.material-dialogs:color:3.3.0")
     implementation("com.afollestad.material-dialogs:input:3.3.0")
     implementation("com.afollestad.material-dialogs:lifecycle:3.3.0")
-    // Temp fix for https://github.com/afollestad/material-dialogs/issues/1825
-    implementation(fileTree("libs/bottomsheets-release.aar"))
 
 }
